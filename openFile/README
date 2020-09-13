@@ -1,0 +1,5 @@
+#Statement 
+Accept the filename from commandline and open that file
+
+#Explanation
+This Program Simply take filename as command line argument and open that file
