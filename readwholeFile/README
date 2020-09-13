@@ -1,0 +1,5 @@
+#Statement 
+Accept the filename from command line and read the whole file
+
+#Explanation
+This Program Simply take filename as command line argument and and read the whole file dislay content on console
