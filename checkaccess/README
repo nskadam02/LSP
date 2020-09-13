@@ -1,0 +1,5 @@
+#Statement 
+Accept file name and mode and check whether that file accessible in given mode or not
+
+#Explanation
+It Simply Accept Filename and mode using command line and check whether the given file is accessible in  accepted mode or not
