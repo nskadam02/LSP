@@ -1,0 +1,5 @@
+#Statement
+Accept Filename and string and write that string into the Filename
+
+#Explanation
+It simply Accept Filename and string and then write that string into the file
