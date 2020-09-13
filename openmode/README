@@ -1,0 +1,5 @@
+#Statement 
+Accept file name and mode and opened that file
+
+#Explanation
+It Simply Accept Filename and mode using command line and open that file
