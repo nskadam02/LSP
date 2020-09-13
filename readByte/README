@@ -1,0 +1,5 @@
+#Statement 
+Accept filename and number of bytes and read that no of bytes from file
+
+#Explanation
+Simply Accept the Filename and no of byte to read from file and display that number of bytes on cosole.
