@@ -5,7 +5,7 @@ clear:
 	rm openexe
 
 run:
-	./openexe ${SRC} ${DST}
+	./openexe ${SRC} 
 
 help:
-	@echo "To run file use- make run SRC="source Filename" DST="destination File""
+	@echo "To run file use- make run SRC="source Filename""
