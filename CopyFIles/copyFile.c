@@ -1,18 +1,25 @@
+
 #include<stdio.h>
 #include<fcntl.h>
 #include<string.h> //conatins syetm calls and macros for modes
 #include<unistd.h> //for close
 int main(int argc,char *argv[])
 {
- if(argc!=3)
+ if(argc!=2)
   {
     printf("Invalid Arguments\n");
-    printf("Help: programFilename Source_file Destination_File \n");
+    printf("Help: programFilename Source_file \n");
     return -1;
   }  
  int ret=0;
  int fd=open(argv[1],O_RDONLY);
- int fd1=open(argv[2],O_WRONLY|O_APPEND);
+ int fd2=creat("Hello.txt",0777);
+ if(fd2==-1)
+ {
+   printf("Unable to crete file");
+   return -1;
+ }
+ int fd1=open("Hello.txt",O_WRONLY|O_APPEND);
  if(fd==-1 || fd1==-1)
  {
   printf("Error:Unable to open File\n");
