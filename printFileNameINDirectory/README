@@ -1,0 +1,5 @@
+#Statement 
+Take a directory from user and print all files in that directory
+
+#Explanation
+Simply take the directory name from user and print all the files in that directory
