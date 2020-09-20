@@ -49,7 +49,7 @@ int main(int argc,char *argv[])
   {
       printf("File opened successfully with descriptor %d\n",fd);
   }
-  //close the file
+  //close the file 
   close(fd);
   return 0;
 }
