@@ -1,10 +1,14 @@
 
+// It Takes the directory name as the command line argumnet and return the 
+// filename having largest size
+
 #include<stdio.h>
 #include<dirent.h>
 #include<fcntl.h>
 #include<unistd.h>//for lseek
 #include<string.h>
 #include<sys/stat.h> //for stat function
+#include<stdlib.h>  //dynamic memory allocation
 int main(int argv,char *args[])
 {
     if(argv!=2)
@@ -13,15 +17,15 @@ int main(int argv,char *args[])
         printf("Run: Exename directoery_name");
         return -1;
     }
-    int fd;
-    int size;
+    int size=0;
     int maxsize=0;
-    const char* file;
-    char* largefile;
+    //const char* file;
+    //char* largefile;
+    char* name;
+    char* n=(char*)malloc(256);
     struct stat ptr;
     struct dirent *de; //Pointer for directoery Entry
     DIR *dr=opendir(args[1]); ///it returns pointer
-    char* filename=args[1]+'/';
     if(dr==NULL)
     {
        printf("Unable to Open Directory");
@@ -29,24 +33,25 @@ int main(int argv,char *args[])
     }
     while((de=readdir(dr))!=NULL)
     {
-        if(de->d_type==8)
-        {
-       // file=strcat(filename,de->d_name);
-       // printf("%s",file);
-       char* name=de->d_name;
-        if(stat((filename+name),&ptr)==0)
-        {
-            if(maxsize<ptr.st_size)
-            {
-                maxsize=ptr.st_size;
-                largefile=de->d_name;
-            }
-        }
-        }
-        //printf("%ld:%s:%c\n",de->d_ino,de->d_name,de->d_type);
+         if(de->d_type==8)   //consider only files not directories
+         {
+           
+             sprintf(n,"%s/%s",args[1],de->d_name); //concat to get relative Path
+             if(stat(n,&ptr)==0)
+             {
+                 if(maxsize<ptr.st_size)
+                 {
+                     name=de->d_name;
+                     size=ptr.st_size;
+                 }
+
+             }
+
+         }
+    
     }
-    printf("File Having Lrgest Size %s:%d",largefile,maxsize);
-    closedir(dr);
+    printf("Largest File Size is %d and File Name %s",size,name);  
+    closedir(dr);  //it close the directory
 
     return 0;
 }
