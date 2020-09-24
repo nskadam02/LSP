@@ -1,4 +1,5 @@
-// This Program Takes the directory and 
+
+  // This Program Takes the directory and 
 //display all the files in directory and type of the file
 
 #include<stdio.h>
@@ -21,7 +22,7 @@ int main(int argv,char *args[])
     }
     while((de=readdir(dr))!=NULL)
     {
-        printf("%s:%s\n",de->d_name,checktype(de->d_type));
+        printf("Name:%s Type:%s\n",de->d_name,checktype(de->d_type));
     }
     closedir(dr);
 
