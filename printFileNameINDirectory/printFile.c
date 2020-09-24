@@ -17,7 +17,7 @@ int main(int argv,char *args[])
     }
     while((de=readdir(dr))!=NULL)
     {
-        printf("%ld:%s\n",de->d_ino,de->d_name);
+        printf("Inode Number:%ld Name:%s\n",de->d_ino,de->d_name);
     }
     closedir(dr);
 
